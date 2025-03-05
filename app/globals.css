@@ -4,9 +4,10 @@
 
 @layer base {
   :root {
-    max-width: 1280px;
+    /* max-width: 1280px; */
     margin: 0 auto;
     padding: 2rem;
+    padding-bottom: 0;
     text-align: center;
 
     --background: 220 33% 99%;
