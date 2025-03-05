@@ -70,7 +70,7 @@ const Hero = ({ onGetStartedClick }: HeroProps) => {
                 <div className="w-3/4 h-1 bg-divine-300 rounded-full"></div>
               </div>
               <h3 className="font-playfair text-lg font-medium text-divine-700 mb-2">Filipenses 4:13</h3>
-              <p className="text-gray-600 italic">"Tudo posso naquele que me fortalece."</p>
+              <p className="text-gray-600 italic">&quot;Tudo posso naquele que me fortalece.&quot;</p>
               <div className="mt-4 flex items-center justify-between">
                 <div className="flex items-center gap-1.5">
                   <div className="h-2 w-2 bg-green-500 rounded-full"></div>

@@ -8,7 +8,7 @@ interface NavbarProps {
     onContactClick: () => void;
 }
 
-const Navbar = ({ onContactClick }: NavbarProps) => {
+const Navbar = ({ }: NavbarProps) => {
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {

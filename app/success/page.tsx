@@ -2,10 +2,11 @@
 import constants from "@/constants";
 import { Montserrat } from "next/font/google";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
-export default function Success() {
+function Success() {
     const searchParams = useSearchParams();
     const sessionId = searchParams.get('session_id');
 
@@ -65,4 +66,12 @@ export default function Success() {
             </div>
         </div>
     );
+}
+
+export default function SuccessWrapped() {
+    return (
+        <Suspense>
+            <Success />
+        </Suspense>
+    )
 }

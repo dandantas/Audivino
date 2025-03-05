@@ -1,5 +1,6 @@
 'use client'
 import { Montserrat } from "next/font/google";
+import Link from "next/link";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -43,18 +44,18 @@ export default function Cancel() {
                     </div>
 
                     <div className="flex justify-center space-x-4">
-                        <a
+                        <Link
                             href="/"
                             className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition-colors"
                         >
                             Voltar ao Início
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                             href="#contato"
                             className="bg-gray-200 hover:bg-gray-300 dark:bg-gray-600 dark:hover:bg-gray-500 text-gray-800 dark:text-white font-bold py-3 px-8 rounded-lg transition-colors"
                         >
                             Falar com Suporte
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>
