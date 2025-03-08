@@ -32,7 +32,7 @@ const Hero = ({ onGetStartedClick }: HeroProps) => {
               Receba inspiração diária através de mensagens de áudio cuidadosamente selecionadas das Escrituras Sagradas. Comece seu dia com sabedoria e paz.
             </p>
 
-            <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-4 animate-fade-in animate-delay-600">
+            <div className="mt-6 flex flex-col sm:flex-row items-center sm:items-center gap-4 animate-fade-in animate-delay-600">
               <Button onClick={onGetStartedClick} size="lg" className="bg-divine-500 hover:bg-divine-600 text-white">
                 Começar Agora
               </Button>
@@ -41,7 +41,7 @@ const Hero = ({ onGetStartedClick }: HeroProps) => {
               </Button>
             </div>
 
-            <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4 animate-fade-in animate-delay-900">
+            <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4 animate-fade-in animate-delay-900 md:justify-items-start md:items-start justify-items-center items-center">
               <div className="flex items-center gap-2">
                 <CheckCircle className="h-5 w-5 text-divine-500" />
                 <span className="text-sm text-gray-600">Mensagens Diárias</span>
