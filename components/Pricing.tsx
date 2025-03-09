@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
 interface PricingProps {
-  onGetStartedClick: () => void;
+  onGetStartedClick: (priceType: "basic" | "premium") => void;
 }
 
 const Pricing = ({ onGetStartedClick }: PricingProps) => {
@@ -64,7 +64,7 @@ const Pricing = ({ onGetStartedClick }: PricingProps) => {
                 </li>
               </ul>
 
-              <Button onClick={onGetStartedClick} className="w-full mt-6 bg-divine-500 hover:bg-divine-600 text-white">
+              <Button onClick={() => onGetStartedClick("basic")} className="w-full mt-6 bg-divine-500 hover:bg-divine-600 text-white">
                 Começar com Básico
               </Button>
             </div>
@@ -117,7 +117,7 @@ const Pricing = ({ onGetStartedClick }: PricingProps) => {
                 </li>
               </ul>
 
-              <Button onClick={onGetStartedClick} className="w-full mt-6 bg-divine-500 hover:bg-divine-600 text-white">
+              <Button onClick={() => onGetStartedClick("premium")} className="w-full mt-6 bg-divine-500 hover:bg-divine-600 text-white">
                 Começar com Premium
               </Button>
             </div>

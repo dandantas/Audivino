@@ -1,73 +1,109 @@
-'use client'
-import constants from "@/constants";
-import { Montserrat } from "next/font/google";
+"use client";
+
+import { useState, useEffect, Suspense } from "react";
+import Link from "next/link";
+import { CircleCheck, Home, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { useSearchParams } from "next/navigation";
-import { Suspense } from "react";
+import Stripe from "stripe";
+import { getCheckoutSession } from "./actions/get-checkout-session";
 
-const montserrat = Montserrat({ subsets: ["latin"] });
-
-function Success() {
+const Success = () => {
     const searchParams = useSearchParams();
-    const sessionId = searchParams.get('session_id');
+    const planType = searchParams.get("plan") || "básico";
+    const [countdown, setCountdown] = useState(10);
+    const [, setSessionData] = useState<Stripe.Checkout.Session | null>(null);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCountdown((prev) => {
+                if (prev <= 1) {
+                    clearInterval(timer);
+                    return 0;
+                }
+                return prev - 1;
+            });
+        }, 1000);
+
+        return () => clearInterval(timer);
+    }, []);
+
+    useEffect(() => {
+        async function fetchSessionData() { 
+            const sessionId = searchParams.get("session_id");
+            if (typeof sessionId !== 'string') {
+                return;
+            }
+            const session = await getCheckoutSession(sessionId);
+            setSessionData(session);
+        }
+        fetchSessionData();
+    }, [searchParams]);
 
     return (
-        <div className={`min-h-screen bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800 ${montserrat.className}`}>
-            <div className="container mx-auto px-6 py-20">
-                <div className="max-w-3xl mx-auto text-center">
-                    <div className="mb-8 animate-bounce">
-                        <svg className="w-20 h-20 text-green-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                    </div>
+        <div className="min-h-screen bg-gradient-to-b from-divine-50 to-white flex flex-col items-center justify-center p-4">
+            <div className="max-w-md w-full bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div className="bg-divine-500 p-6 text-white text-center">
+                    <CircleCheck className="h-20 w-20 mx-auto mb-4 text-white animate-bounce-slow" />
+                    <h1 className="text-3xl font-bold">Pagamento Confirmado!</h1>
+                    <p className="mt-2 opacity-90">Sua assinatura foi ativada com sucesso</p>
+                </div>
 
-                    <h1 className="text-4xl font-bold mb-6 text-gray-800 dark:text-white">
-                        Pagamento Confirmado!
-                    </h1>
-                    <p>Session ID: {sessionId}</p>
-
-                    <p className="text-xl mb-8 text-gray-600 dark:text-gray-300">
-                        Obrigado por se juntar à família `${constants.platform_name}`! Sua jornada espiritual está prestes a começar.
-                    </p>
-
-                    <div className="bg-white dark:bg-gray-700 rounded-xl p-8 shadow-lg mb-8">
-                        <h2 className="text-2xl font-semibold mb-4 text-gray-800 dark:text-white">
-                            O que esperar agora:
+                <div className="p-6 md:p-8">
+                    <div className="glass-card rounded-xl p-4 mb-6 bg-divine-50/50">
+                        <h2 className="text-xl font-semibold text-divine-700 mb-2">
+                            Plano {planType.charAt(0).toUpperCase() + planType.slice(1)}
                         </h2>
-                        <ul className="text-left space-y-4 text-gray-600 dark:text-gray-300">
-                            <li className="flex items-center">
-                                <svg className="w-5 h-5 mr-3 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                                </svg>
-                                Você receberá um WhatsApp de boas-vindas em até 24 horas
-                            </li>
-                            <li className="flex items-center">
-                                <svg className="w-5 h-5 mr-3 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                                </svg>
-                                Suas mensagens diárias começarão automaticamente
-                            </li>
-                            <li className="flex items-center">
-                                <svg className="w-5 h-5 mr-3 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                                </svg>
-                                Acesso imediato a todas as funcionalidades da sua assinatura
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div className="bg-blue-50 dark:bg-gray-600 rounded-xl p-6">
-                        <p className="text-gray-600 dark:text-gray-300">
-                            Se precisar de ajuda ou tiver alguma dúvida, entre em contato conosco através do WhatsApp de suporte:
-                            <br />
-                            <span className="font-semibold">+55 (11) 99999-9999</span>
+                        <p className="text-gray-600">
+                            Seu plano está ativo e você começará a receber mensagens espirituais diárias via WhatsApp a partir de amanhã.
                         </p>
                     </div>
+
+                    <div className="space-y-4">
+                        <div className="flex items-start gap-3">
+                            <div className="bg-divine-100 p-1 rounded-full">
+                                <ArrowRight className="h-4 w-4 text-divine-600" />
+                            </div>
+                            <p className="text-gray-600 text-sm">Configure suas preferências no seu painel de controle para personalizar sua experiência.</p>
+                        </div>
+
+                        <div className="flex items-start gap-3">
+                            <div className="bg-divine-100 p-1 rounded-full">
+                                <ArrowRight className="h-4 w-4 text-divine-600" />
+                            </div>
+                            <p className="text-gray-600 text-sm">Uma porcentagem de sua assinatura será destinada a projetos de caridade. Agradecemos sua contribuição!</p>
+                        </div>
+                    </div>
+
+                    <div className="mt-8 flex flex-col gap-4">
+                        <Button asChild className="w-full bg-divine-500 hover:bg-divine-600">
+                            <Link href="/">
+                                <Home className="mr-2 h-4 w-4" /> Voltar para Página Inicial
+                            </Link>
+                        </Button>
+
+                        <Link href="/dashboard" className="text-divine-600 hover:text-divine-700 text-center text-sm font-medium">
+                            Acessar meu Painel de Controle
+                        </Link>
+                    </div>
+
+                    {countdown > 0 && (
+                        <p className="text-center text-sm text-gray-500 mt-4">
+                            Redirecionando em {countdown} segundos...
+                        </p>
+                    )}
                 </div>
+            </div>
+
+            <div className="mt-8 text-center max-w-md">
+                <h3 className="text-lg font-semibold text-divine-700 mb-2">Apoie Nossa Missão</h3>
+                <p className="text-gray-600 text-sm">
+                    Cada assinatura ajuda a levar conforto espiritual para mais pessoas e apoiar causas beneficentes. Compartilhe este serviço com amigos e familiares.
+                </p>
             </div>
         </div>
     );
-}
-
+};
 export default function SuccessWrapped() {
     return (
         <Suspense>
