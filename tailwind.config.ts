@@ -56,9 +56,11 @@ export default {
                     DEFAULT: "hsl(var(--sidebar-background))",
                     foreground: "hsl(var(--sidebar-foreground))",
                     primary: "hsl(var(--sidebar-primary))",
-                    "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
+                    "primary-foreground":
+                        "hsl(var(--sidebar-primary-foreground))",
                     accent: "hsl(var(--sidebar-accent))",
-                    "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
+                    "accent-foreground":
+                        "hsl(var(--sidebar-accent-foreground))",
                     border: "hsl(var(--sidebar-border))",
                     ring: "hsl(var(--sidebar-ring))",
                 },
@@ -105,8 +107,8 @@ export default {
                     "50%": { opacity: "0.8" },
                 },
                 "fade-in": {
-                    "0%": { opacity: "0", transform: "translateY(10px)" },
-                    "100%": { opacity: "1", transform: "translateY(0)" },
+                    from: { opacity: "0", transform: "translateY(10px)" },
+                    to: { opacity: "1", transform: "translateY(0)" },
                 },
                 "slide-in-left": {
                     "0%": { transform: "translateX(-10%)" },
@@ -126,8 +128,8 @@ export default {
                 "accordion-up": "accordion-up 0.2s ease-out",
                 float: "float 6s ease-in-out infinite",
                 "pulse-subtle": "pulse-subtle 3s ease-in-out infinite",
-                "fade-in": "fade-in 0.6s ease-out",
-                "fade-in-slow": "fade-in 1.2s ease-out",
+                "fade-in": "fade-in 0.6s ease-out forwards",
+                "fade-in-slow": "fade-in 1.2s ease-out forwards",
                 "slide-in-left": "slide-in-left 0.8s ease-out",
                 "slide-in-right": "slide-in-right 0.8s ease-out",
                 "scale-in": "scale-in 0.5s ease-out",
