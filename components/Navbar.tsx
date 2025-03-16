@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Book } from "lucide-react";
 import constants from "@/constants";
@@ -24,16 +23,6 @@ const Navbar = () => {
         };
     }, [scrolled]);
 
-    const scrollToSection = (id: string) => {
-        const element = document.getElementById(id);
-        if (element) {
-            element.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-            });
-        }
-    };
-
     return (
         <nav
             className={cn(
@@ -54,24 +43,25 @@ const Navbar = () => {
                 </Link>
 
                 <div className="hidden md:flex items-center space-x-6">
-                    <button
-                        onClick={() => scrollToSection("about")}
+                    <Link
+                        href="/#about"
                         className="font-medium text-sm text-gray-700 hover:text-divine-500 transition-colors"
                     >
                         Sobre
-                    </button>
-                    <button
-                        onClick={() => scrollToSection("features")}
+                    </Link>
+                    <Link
+                        href="/#features"
                         className="font-medium text-sm text-gray-700 hover:text-divine-500 transition-colors"
                     >
                         Recursos
-                    </button>
-                    <button
-                        onClick={() => scrollToSection("pricing")}
-                        className="font-medium text-sm text-gray-700 hover:text-divine-500 transition-colors"
+                    </Link>
+
+                    <Link
+                        href="/#pricing"
+                        className="bg-divine-500 hover:bg-divine-600 text-white inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-10 px-4 py-2"
                     >
                         Planos
-                    </button>
+                    </Link>
                     {/**
                       <button onClick={() => scrollToSection('testimonials')} className="font-medium text-sm text-gray-700 hover:text-divine-500 transition-colors">
                           Depoimentos
@@ -84,20 +74,14 @@ const Navbar = () => {
                           Contato
                       </Button>
                      */}
-                    <Button
-                        onClick={() => scrollToSection("cta")}
-                        className="bg-divine-500 hover:bg-divine-600 text-white"
-                    >
-                        Começar
-                    </Button>
                 </div>
 
-                <Button
-                    onClick={() => scrollToSection("cta")}
-                    className="md:hidden bg-divine-500 hover:bg-divine-600 text-white"
+                <Link
+                    href="/#pricing"
+                    className="md:hidden bg-divine-500 hover:bg-divine-600 text-white inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-10 px-4 py-2"
                 >
-                    Começar
-                </Button>
+                    Planos
+                </Link>
             </div>
         </nav>
     );
