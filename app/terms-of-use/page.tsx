@@ -3,7 +3,7 @@ import React from "react";
 export const metadata = {
     title: "Termos de Uso | Audivino",
     description:
-        "Termos de uso e condições para utilização do serviço Audivino",
+        "Termos e condições completos do Audivino. Informações sobre assinaturas, direitos, privacidade e uso do serviço de mensagens bíblicas diárias via WhatsApp. Leia antes de usar nosso serviço.",
     keywords:
         "termos de uso, Audivino, mensagens bíblicas, WhatsApp, Catapio, termos e condições",
     robots: "index, follow",
@@ -13,7 +13,7 @@ export const metadata = {
     openGraph: {
         title: "Termos de Uso | Audivino",
         description:
-            "Termos de uso e condições para utilização do serviço Audivino",
+            "Termos e condições completos do Audivino. Informações sobre assinaturas, direitos, privacidade e uso do serviço de mensagens bíblicas diárias via WhatsApp. Leia antes de usar nosso serviço.",
         url: "https://audivino.catap.io/terms-of-use",
         siteName: "Audivino",
         locale: "pt_BR",
@@ -31,7 +31,7 @@ export const metadata = {
         card: "summary_large_image",
         title: "Termos de Uso | Audivino",
         description:
-            "Termos de uso e condições para utilização do serviço Audivino",
+            "Termos e condições completos do Audivino. Informações sobre assinaturas, direitos, privacidade e uso do serviço de mensagens bíblicas diárias via WhatsApp. Leia antes de usar nosso serviço.",
         images: ["https://audivino.catap.io/twitter-image.jpg"],
     },
 };
