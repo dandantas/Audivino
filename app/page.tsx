@@ -34,7 +34,7 @@ export default function Home() {
             className={`min-h-screen bg-white overflow-hidden ${inter.className}`}
         >
             {/* Hero Section */}
-            <Hero onGetStartedClick={() => console.log("get started")} />
+            <Hero />
 
             {/* About Section */}
             <About />
