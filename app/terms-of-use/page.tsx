@@ -294,17 +294,17 @@ export default function TermsOfUsePage() {
                             <p className="mb-6">
                                 Nossa{" "}
                                 <a
-                                    href="https://catap.io/privacyPolicy"
+                                    href="https://catap.io/privacy-policy"
                                     className="text-divine-500 hover:underline"
                                 >
                                     Política de Privacidade
                                 </a>{" "}
                                 completa está disponível em{" "}
                                 <a
-                                    href="https://catap.io/privacyPolicy"
+                                    href="https://catap.io/privacy-policy"
                                     className="text-divine-500 hover:underline"
                                 >
-                                    https://catap.io/privacyPolicy
+                                    https://catap.io/privacy-policy
                                 </a>{" "}
                                 e descreve detalhadamente como coletamos, usamos
                                 e protegemos suas informações pessoais. Ao

@@ -65,7 +65,7 @@ const Footer = () => {
                             </li>
                             <li>
                                 <a
-                                    href="https://catap.io/privacyPolicy"
+                                    href="https://catap.io/privacy-policy"
                                     className="text-divine-200 hover:text-white transition-colors"
                                 >
                                     Política de Privacidade
