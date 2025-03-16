@@ -1,14 +1,13 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Book } from "lucide-react";
 import constants from "@/constants";
+import Link from "next/link";
 
-interface NavbarProps {
-    onContactClick: () => void;
-}
-
-const Navbar = ({ }: NavbarProps) => {
+const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
@@ -39,16 +38,20 @@ const Navbar = ({ }: NavbarProps) => {
         <nav
             className={cn(
                 "fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4",
-                scrolled ? "bg-white/90 backdrop-blur-sm shadow-sm" : "bg-transparent",
+                scrolled
+                    ? "bg-white/90 backdrop-blur-sm shadow-sm"
+                    : "bg-transparent"
             )}
         >
             <div className="container mx-auto flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                    <Book className="h-6 w-6 text-divine-500" />
-                    <span className="font-playfair text-lg font-medium text-divine-700">
-                        {constants.platform_name}
-                    </span>
-                </div>
+                <Link href="/">
+                    <div className="flex items-center gap-2">
+                        <Book className="h-6 w-6 text-divine-500" />
+                        <span className="font-playfair text-lg font-medium text-divine-700">
+                            {constants.platform_name}
+                        </span>
+                    </div>
+                </Link>
 
                 <div className="hidden md:flex items-center space-x-6">
                     <button

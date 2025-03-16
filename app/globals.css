@@ -3,119 +3,119 @@
 @config "../tailwind.config.ts";
 
 @layer base {
-  :root {
-    /* max-width: 1280px; */
-    margin: 0 auto;
-    padding-bottom: 0;
-    text-align: center;
+    :root {
+        /* max-width: 1280px; */
+        margin: 0 auto;
+        padding-bottom: 0;
+        text-align: center;
 
-    --background: 220 33% 99%;
-    --foreground: 222 47% 11%;
+        --background: 220 33% 99%;
+        --foreground: 222 47% 11%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+        --card: 0 0% 100%;
+        --card-foreground: 222 47% 11%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 222 47% 11%;
 
-    --primary: 222 47% 40%;
-    --primary-foreground: 210 40% 98%;
+        --primary: 222 47% 40%;
+        --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222 47% 11%;
+        --secondary: 210 40% 96%;
+        --secondary-foreground: 222 47% 11%;
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+        --muted: 210 40% 96%;
+        --muted-foreground: 215 16% 47%;
 
-    --accent: 220 40% 94%;
-    --accent-foreground: 222 47% 11%;
+        --accent: 220 40% 94%;
+        --accent-foreground: 222 47% 11%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 210 40% 98%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 222 47% 40%;
+        --border: 214 32% 91%;
+        --input: 214 32% 91%;
+        --ring: 222 47% 40%;
 
-    --radius: 0.5rem;
-  }
+        --radius: 0.5rem;
+    }
 
-  .dark {
-    --background: 222 47% 11%;
-    --foreground: 210 40% 98%;
+    .dark {
+        --background: 222 47% 11%;
+        --foreground: 210 40% 98%;
 
-    --card: 222 47% 11%;
-    --card-foreground: 210 40% 98%;
+        --card: 222 47% 11%;
+        --card-foreground: 210 40% 98%;
 
-    --popover: 222 47% 11%;
-    --popover-foreground: 210 40% 98%;
+        --popover: 222 47% 11%;
+        --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222 47% 11%;
+        --primary: 210 40% 98%;
+        --primary-foreground: 222 47% 11%;
 
-    --secondary: 217 33% 18%;
-    --secondary-foreground: 210 40% 98%;
+        --secondary: 217 33% 18%;
+        --secondary-foreground: 210 40% 98%;
 
-    --muted: 217 33% 18%;
-    --muted-foreground: 215 20% 65%;
+        --muted: 217 33% 18%;
+        --muted-foreground: 215 20% 65%;
 
-    --accent: 217 33% 18%;
-    --accent-foreground: 210 40% 98%;
+        --accent: 217 33% 18%;
+        --accent-foreground: 210 40% 98%;
 
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 98%;
+        --destructive: 0 63% 31%;
+        --destructive-foreground: 210 40% 98%;
 
-    --border: 217 33% 18%;
-    --input: 217 33% 18%;
-    --ring: 213 27% 84%;
-  }
+        --border: 217 33% 18%;
+        --input: 217 33% 18%;
+        --ring: 213 27% 84%;
+    }
 }
 
 @layer utilities {
-  .font-inter {
-    font-family: "Inter", sans-serif;
-  }
+    .font-inter {
+        font-family: "Inter", sans-serif;
+    }
 
-  .font-playfair {
-    font-family: "Playfair Display", serif;
-  }
+    .font-playfair {
+        font-family: "Playfair Display", serif;
+    }
 
-  .glass-card {
-    @apply bg-white/90 backdrop-blur-sm border border-white/20 shadow-lg;
-  }
+    .glass-card {
+        @apply bg-white/90 backdrop-blur-sm border border-white/20 shadow-lg;
+    }
 
-  .text-glow {
-    text-shadow: 0 0 20px rgba(79, 70, 229, 0.2);
-  }
+    .text-glow {
+        text-shadow: 0 0 20px rgba(79, 70, 229, 0.2);
+    }
 
-  .animate-delay-300 {
-    animation-delay: 300ms;
-  }
+    .animate-delay-300 {
+        animation-delay: 300ms;
+    }
 
-  .animate-delay-600 {
-    animation-delay: 600ms;
-  }
+    .animate-delay-600 {
+        animation-delay: 600ms;
+    }
 
-  .animate-delay-900 {
-    animation-delay: 900ms;
-  }
+    .animate-delay-900 {
+        animation-delay: 900ms;
+    }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
+    * {
+        @apply border-border;
+    }
 
-  body {
-    @apply bg-background text-foreground overflow-x-hidden;
-  }
+    body {
+        @apply bg-background text-foreground overflow-x-hidden;
+    }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    /* @apply font-playfair; */
-  }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        /* @apply font-playfair; */
+    }
 }
