@@ -31,7 +31,7 @@ const Success = () => {
     useEffect(() => {
         async function fetchSessionData() { 
             const sessionId = searchParams.get("session_id");
-            if (typeof sessionId !== 'string') {
+            if (typeof sessionId !== "string") {
                 return;
             }
             const session = await getCheckoutSession(sessionId);
@@ -109,5 +109,5 @@ export default function SuccessWrapped() {
         <Suspense>
             <Success />
         </Suspense>
-    )
+    );
 }

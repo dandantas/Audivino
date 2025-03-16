@@ -1,6 +1,6 @@
-'use server';
+"use server";
 
-import Stripe from 'stripe';
+import Stripe from "stripe";
 
 export async function getCheckoutSession(sessionId: string): Promise<Stripe.Checkout.Session> {
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
