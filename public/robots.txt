@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://audivino.catap.io/sitemap.xml
+
+# restrict
+Disallow: /api/
+Disallow: /cancel/
+Disallow: /success/

@@ -97,7 +97,8 @@ const Footer = () => {
 
                 <div className="border-t border-divine-600 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center">
                     <p className="text-divine-300 text-sm">
-                        &copy; {new Date().getFullYear()}{" "}
+                        &copy; {new Date().getFullYear()} Audivino - Um serviço
+                        da{" "}
                         <a
                             href="https://catap.io"
                             className="text-divine-200 hover:text-white transition-colors"

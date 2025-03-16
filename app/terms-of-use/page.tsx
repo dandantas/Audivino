@@ -4,6 +4,36 @@ export const metadata = {
     title: "Termos de Uso | Audivino",
     description:
         "Termos de uso e condições para utilização do serviço Audivino",
+    keywords:
+        "termos de uso, Audivino, mensagens bíblicas, WhatsApp, Catapio, termos e condições",
+    robots: "index, follow",
+    alternates: {
+        canonical: "https://audivino.catap.io/terms-of-use",
+    },
+    openGraph: {
+        title: "Termos de Uso | Audivino",
+        description:
+            "Termos de uso e condições para utilização do serviço Audivino",
+        url: "https://audivino.catap.io/terms-of-use",
+        siteName: "Audivino",
+        locale: "pt_BR",
+        type: "website",
+        images: [
+            {
+                url: "https://audivino.catap.io/og-image.jpg",
+                width: 1200,
+                height: 630,
+                alt: "Audivino - Mensagens bíblicas diárias",
+            },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Termos de Uso | Audivino",
+        description:
+            "Termos de uso e condições para utilização do serviço Audivino",
+        images: ["https://audivino.catap.io/twitter-image.jpg"],
+    },
 };
 
 export default function TermsOfUsePage() {
